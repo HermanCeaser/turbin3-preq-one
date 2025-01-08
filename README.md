@@ -13,6 +13,23 @@ A Typescript Project that acts as a Prerequisite to enter the Turbin3 Program Q1
 - uses TypeScript and NodeJS
 - yarn (as the package manager)
 
+## Project Structure
+
+```plaintext
+├──programs/
+├──── Turbin3_prereq.ts      // Defines the Program IDL and Typescript
+├── airdop.ts                // Handles Airdropping sol to a public address
+├── enroll.ts                // Signs a PDA with github username and a seed
+├── keygen.ts                // generate a new keypair using web3.js and prints it's  public and secretkey to the console
+├── transfer.ts              // Orchestrates modules and exposes APIs
+├── utils.ts                 // Has functions to convert between different wallet formats
+├── wallet-converter.ts      // CLI tool that converts between wallet formats
+├── wallet-converter.test.ts // Tests wallet conversions functionality
+├── jest.config.json         // JSON file to configure Jest
+├── dev-wallet.json          // A secret key used to ask for airdrop
+├── Turbin3-wallet.json      // A Seckret key for a solana wallet used to sign transactions
+```
+
 
 ## Setup
 - Clone the repo by running `git clone https://github.com/HermanCeaser/turbin3-preq-one.git`
@@ -35,24 +52,20 @@ A Typescript Project that acts as a Prerequisite to enter the Turbin3 Program Q1
 
 - Finally run `yarn enroll` to interact with an onchain program that WBA created. Change the github username in line 9 of [`enroll.ts`](./enroll.ts) to your username if you want to sign this transaction
 
-### About the Files in the project
+## Testing
+This project includes tests to verify the correctness of wallet format conversions.
 
-#### `keygen.ts`
+### How to Run Tests
+1. Run the tests using:
+   ```bash
+   yarn test
+   ```
 
-A script that has code to generate a new keypair using web3.js and prints it's  public and secretkey to the console.
-transactions to the blockchain
+### Test Coverage
+- **Base58 to Wallet Byte Array Conversion**: Ensures the correct decoding of Base58 strings into wallet byte arrays.
+- **Wallet Byte Array to Base58 Conversion**: Validates that wallet byte arrays are properly encoded into Base58 strings.
+- **Byte Array Parsing**: Verifies the parsing of comma-separated byte array input into a usable format.
 
-#### `airdrop.ts`
-
-A script that requests airdrop to the generated wallet that is saved to `dev-wallet.json` file 
-
-#### `transfer.ts`
-
-Demonstrates how to generate a new wallet and transfer SOL(Lamports) to another waller
-
-#### `enroll.ts`
-
-Demonstrates how to create a PDA address and use it to interact with another program onchain.
 
 ## Contributing
 - Fork the repository 
