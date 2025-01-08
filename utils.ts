@@ -13,3 +13,23 @@ export function parseByteArray(byteArrayInput: string): number[] {
     );
   }
 }
+
+import bs58 from "bs58";
+
+export function base58ToWallet(base58Key: string): number[] {
+  try {
+    const wallet = bs58.decode(base58Key);
+    return [...wallet];
+  } catch (error) {
+    throw new Error("Invalid base58 input");
+  }
+}
+
+export function walletToBase58(byteArray: number[]): string {
+  try {
+    const base58Key = bs58.encode(Uint8Array.from(byteArray));
+    return base58Key;
+  } catch (error) {
+    throw new Error("Invalid byte array input");
+  }
+}
