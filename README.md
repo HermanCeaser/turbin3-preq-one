@@ -16,7 +16,7 @@ A Typescript Project that acts as a Prerequisite to enter the Turbin3 Program Q1
 
 ## Setup
 - Clone the repo by running `git clone https://github.com/HermanCeaser/turbin3-preq-one.git`
-- Change the directory to `airdop` folder on your machine `cd turbin3-preq-one`
+- Change the directory to `turbin3-preq-one` folder on your machine `cd turbin3-preq-one`
 - Install the depencies by running `yarn install`
 - start your local validator by running `solana-test-validator`
 
